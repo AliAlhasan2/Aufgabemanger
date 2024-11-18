@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: black;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Sanfte Übergänge */
+}
+
+button:hover {
+    background-color: #218838;
+    transform: scale(1.1); /* Vergrößern */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+button:active {
+    transform: scale(0.95); /* Leichtes Schrumpfen bei Klick */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Weniger Schatten */
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+#task-list li {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+#task-list li:hover {
+    transform: translateY(-5px); /* Verschieben */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stärkere Schatten */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item {
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.fadeOut {
+    animation: fadeOut 0.3s forwards; /* Vorwärtsanimation */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: slideIn 0.6s ease-in-out;
+}
+
+
