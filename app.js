@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.getElementById('task-form');
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
-    const API_URL = 'http://localhost:5000/tasks';
+    const API_URL = 'https://aufgabemanger.onrender.com';
 
     // Aufgaben abrufen
     function fetchTasks() {
