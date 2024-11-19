@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((newTask) => {
                 console.log('Neue Aufgabe hinzugefügt:', newTask);
                 taskInput.value = ''; // Eingabefeld leeren
-                fetchTasks(); // Aktualisiere die Aufgabenliste
+                fetchTasks();
             })
             .catch((err) => console.error(err));
     });
