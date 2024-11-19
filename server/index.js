@@ -50,13 +50,18 @@ app.get('/tasks' ,async (req, res) => {
 
 // Neue Aufgabe hinzufügen
 app.post('/tasks', async (req, res) => {
-    try {
-        const newTask = new Task(req.body);
-        const savedTask = await newTask.save();
-        res.status(201).json(savedTask);
-    } catch (err) {
-        res.status(400).send(err);
+    console.log('Empfangene Daten:', req.body); // Logge die empfangenen Daten
+    const { title } = req.body;
+
+    if (!title) {
+        return res.status(400).json({ message: 'Titel ist erforderlich!' });
     }
+
+    // Speichere die Aufgabe
+    const newTask = new Task({ title });
+    newTask.save()
+        .then(task => res.status(201).json(task))
+        .catch(err => res.status(500).json(err));
 });
 
 // Aufgabe löschen
