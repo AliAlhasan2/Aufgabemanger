@@ -36,13 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newTask)
+            body: JSON.stringify({ title }),
         })
-            .then(() => {
-                taskInput.value = '';
-                fetchTasks();
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Fehler beim Hinzufügen der Aufgabe');
+                }
+                return response.json();
             })
-            .catch(err => console.error('Fehler beim Hinzufügen der Aufgabe:', err));
+            .then((newTask) => {
+                console.log('Neue Aufgabe hinzugefügt:', newTask);
+                taskInput.value = ''; // Eingabefeld leeren
+                fetchTasks(); // Aktualisiere die Aufgabenliste
+            })
+            .catch((err) => console.error(err));
     });
 
     // Aufgabe löschen
